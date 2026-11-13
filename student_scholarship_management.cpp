@@ -139,7 +139,7 @@ int main()
 
     int EligibleStudents = 0;
     cout << "\n\n\t\tEligibity Conditions ";
-    cout << "\n\t\tAttendance must be above 85%\n\t\tFamily income must be belove 110000\n\t\tAcademic marks must be above 85";
+    cout << "\n\t\tAttendance must be at least 85%\n\t\tFamily income must not exceed 110000\n\t\tAcademic marks must be at least 85";
     bool checkall = false;
     cout << "\nStudents satisfing all scholarship eligibity conditions ";
     for (int i = 0;i < 60;i++)
@@ -224,6 +224,7 @@ int main()
     string checkstatus;
     cin.ignore();
     getline(cin, checkstatus);
+    bool foundStatus = false;
     for (int i = 0;i < 60;i++)
     {
         if (checkstatus == scholarshipStatus[i])
@@ -232,10 +233,13 @@ int main()
             cout << "\nAcademic marks : \t" << academicMarks[i];
             cout << "\nAttendance : \t" << attendance[i];
             cout << "\nFamily income : \t" << familyIncome[i]<<"\n";
+            foundStatus = true;
         }
     }
-
-
+    if (foundStatus == false)
+    {
+        cout << "\nNo students found with that scholarship status.";
+    }
 
     return 0;
 }
