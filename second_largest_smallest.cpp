@@ -12,9 +12,12 @@ int main()
 	}
 
 	int largest = arr[0];
-	int seclargest = arr[0];
 	int smallest = arr[0];
-	int secsmallest = arr[0];
+	int seclargest = 0;
+	int secsmallest = 0;
+	bool foundSecondLargest = false;
+	bool foundSecondSmallest = false;
+
 	cout << "\nNumbers are : ";
 	for (int j = 0;j < 10;j++)
 	{
@@ -24,28 +27,44 @@ int main()
 		{
 			seclargest = largest;
 			largest = arr[j];
-		} 
-		else if (arr[j] > seclargest && arr[j] != largest)
+			foundSecondLargest = true;
+	}
+		else if (arr[j] < largest && (!foundSecondLargest || arr[j] > seclargest))
 		{
 			seclargest = arr[j];
+			foundSecondLargest = true;
 		}
 
 		if (arr[j] < smallest)
 		{
 			secsmallest = smallest;
 			smallest = arr[j];
+			foundSecondSmallest = true;
 		}
-		else if (arr[j] < secsmallest && arr[j] != smallest)
+		else if (arr[j] > smallest && (!foundSecondSmallest || arr[j] < secsmallest))
 		{
 			secsmallest = arr[j];
+			foundSecondSmallest = true;
 		}
 	}
 	cout << "\nLargest number is " << largest;
-	cout << "\nSecond largest number is " << seclargest;
+	if (foundSecondLargest)
+	{
+		cout << "\nSecond largest distinct number is " << seclargest;
+	}
+	else
+	{
+		cout << "\nNo second largest distinct number exists.";
+	}
 	cout << "\n\nSmallest number is " << smallest;
-	cout << "\nSecond smallest number is " << secsmallest;
-
-
+	if (foundSecondSmallest)
+	{
+		cout << "\nSecond smallest distinct number is " << secsmallest;
+	}
+	else
+	{
+		cout << "\nNo second smallest distinct number exists.";
+	}
 	return 0;
 
 }
