@@ -53,13 +53,13 @@ int main()
 			}
 		}
 	}
-	cout << "\n\nNumber of repeating elements are : " << duplicate;
+	cout << "\n\nNumber of duplicate pairs are : " << duplicate;
 
 
 	bool isort = true;
 	for (int i = 0;i < 24;i++)
 	{
-		if (arr[i] > arr[i + 1])
+		if (arr[i] >= arr[i + 1])
 		{
 			isort = false;
 			break;
@@ -67,7 +67,7 @@ int main()
 	}
 	if (isort)
 	{
-		cout << "\nArray is sorted in stictly increasing order";
+		cout << "\nArray is sorted in strictly increasing order";
 	}
 	else
 	{
@@ -76,7 +76,7 @@ int main()
 	bool dsort = true;
 	for (int i = 0;i < 24;i++)
 	{
-		if (arr[i] < arr[i + 1])
+		if (arr[i] <= arr[i + 1])
 		{
 			dsort = false;
 			break;
@@ -84,11 +84,11 @@ int main()
 	}
 	if (dsort)
 	{
-		cout << "\nArray is sorted in decreasing order";
+		cout << "\nArray is sorted in strictly decreasing order";
 	}
 	else
 	{
-		cout << "\nArray is not sorted in decreasing order";
+		cout << "\nArray is not sorted in strictly decreasing order";
 	}
 
 	return 0;
