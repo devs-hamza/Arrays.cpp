@@ -95,6 +95,7 @@ int main()
     cout << "\n\nEnter the amount limit: ";
     cin >> amountlimit;
 
+    bool foundAboveLimit = false;
     for (int i = 0; i < 35; i++)
     {
         if (transactionamount[i] > amountlimit)
@@ -103,8 +104,14 @@ int main()
             cout << "\nAccount Number: " << accountnumber[i];
             cout << "\nTransaction Amount: " << transactionamount[i];
             cout << "\nTransaction Type: " << transactiontype[i];
+            foundAboveLimit = true;
         }
     }
+    if (foundAboveLimit == false)
+    {
+        cout << "\nNo transactions exceed this amount limit.";
+    }
+
 
   
     for (int i = 0; i < 35; i++)
@@ -124,7 +131,7 @@ int main()
 
     for (int i = 0; i < 35; i++)
     {
-        if (transactiontype[i] == "Withdraw")
+        if (transactiontype[i] == "Withdrawal")
         {
             withdrawamount += transactionamount[i];
         }
@@ -145,20 +152,31 @@ int main()
 
     for (int i = 0; i < 35; i++)
     {
-        int accountrepeated = 0;
-
-        for (int j = 0; j < 35; j++)
+        bool alreadyDisplayed = false;
+        for (int j = 0; j < i; j++)
         {
             if (accountnumber[i] == accountnumber[j])
             {
-                accountrepeated++;
+                alreadyDisplayed = true;
             }
         }
 
-        if (accountrepeated > mtransactions)
+        if (alreadyDisplayed == false)
         {
-            cout << "\nAccount Number: " << accountnumber[i];
-            cout << "\nTransactions: " << accountrepeated;
+            int accountrepeated = 0;
+            for (int j = 0; j < 35; j++)
+            {
+                if (accountnumber[i] == accountnumber[j])
+                {
+                    accountrepeated++;
+                }
+            }
+
+            if (accountrepeated > mtransactions)
+            {
+                cout << "\nAccount Number: " << accountnumber[i];
+                cout << "\nTransactions: " << accountrepeated;
+            }
         }
     }
 
