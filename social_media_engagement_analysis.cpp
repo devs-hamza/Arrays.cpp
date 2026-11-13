@@ -52,6 +52,7 @@ int main()
         if (idtosearch == userID[i])
         {
             cout << "\nUser name : " << username[i];
+            cout << "\nNumber of posts : " << numberOfPosts[i];
             cout << "\nLikes : " << totalLikes[i];
             cout << "\nComments : " << totalComments[i]<<"\n";
             checkID = true;
@@ -75,6 +76,7 @@ int main()
         if (nametosearch == username[i])
         {
             cout << "\nUser ID : " << userID[i];
+            cout << "\nNumber of posts : " << numberOfPosts[i];
             cout << "\nLikes : " << totalLikes[i];
             cout << "\nComments : " << totalComments[i] << "\n";
             checkname = true;
