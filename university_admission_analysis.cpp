@@ -59,6 +59,7 @@ int main()
     cout << "Enter the applicant ID to search : ";
     int id;
     cin >> id;
+    bool foundApplicant = false;
     for (int i = 0;i < 40;i++)
     {
         if (applicantID[i] == id)
@@ -67,9 +68,13 @@ int main()
             cout << "\nTest marks : " << testMarks[i];
             cout << "\nInterview marks : " << interviewMarks[i];
             cout << "\nFamily income : " << familyIncome[i];
+            foundApplicant = true;
         }
     }
-
+    if (foundApplicant == false)
+    {
+        cout << "\nApplicant ID not found.";
+    }
 
 
     cout << "\n\nApplicants who passes test but failed interview";
