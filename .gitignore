@@ -1,0 +1,5 @@
+# Compiled C++ executables and build output
+*.exe
+*.out
+a.out
+/build/
